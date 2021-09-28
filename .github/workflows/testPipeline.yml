@@ -12,10 +12,10 @@ jobs:
      with:
       java-version: '11'
    - name: Build, test and package app
-     run: mvn -f pom.xml
+     run: mvn -f pom.xml package
    - name: Show contents of current directory
      run: ls -la
    - uses: actions/upload-artifact@v2
      with:
-      name: zipwithjar
+      name: zipWithJar
       path: ./target/spring-github-actions-demo-0.1.jar
