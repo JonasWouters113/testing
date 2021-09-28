@@ -1,0 +1,19 @@
+name: Test and upload .jar-file
+
+on: push
+
+jobs:
+ testingUploading:
+  runs-on: ubuntu-latest
+  name: Testing and uploading
+  steps:
+   - uses: actions/checkout@v2
+   - uses: actions/setup-java@v2
+     with:
+      java-version: '11'
+   - name: Build, test and package app
+     run: mvn -f pom.xml
+   - uses: actions/upload-artifact@v2
+     with:
+      name: zipwithjar
+      path: ./target/spring-github-actions-demo-0.1.jar
